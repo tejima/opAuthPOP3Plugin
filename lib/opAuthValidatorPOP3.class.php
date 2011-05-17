@@ -62,9 +62,7 @@ class opAuthValidatorPOP3 extends sfValidatorSchema
     try{
       $mail = new Zend_Mail_Storage_Pop3($param);
     }catch(Zend_Mail_Protocol_Exception $e){
-      die();
       throw new sfValidatorError($this, 'invalid');
-      
     }
 
     $memberConfig = Doctrine::getTable('MemberConfig')->retrieveByNameAndValue('pop3', $user);
